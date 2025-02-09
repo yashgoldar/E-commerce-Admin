@@ -1,0 +1,77 @@
+<section class="flex">
+
+  <section class="sidebar card">
+    <div class="header">
+      <a href="#"><span class="focus"> Innovacta </span><span class="unfocus"> -Ecomm </span></a>
+    </div>
+    <div class="separator-wrapper">
+      <hr class="separator" />
+      <label for="minimize" class="minimize-btn">
+        <input type="checkbox" id="minimize" />
+        <i class="fa-solid fa-angle-left"></i>
+      </label>
+    </div>
+    <div class="navigation">
+      <div class="section main-section">
+        <div class="title-wrapper">
+          <span class="title">Main</span>
+        </div>
+        <ul class="items">
+          @for(menu of menuItems; track $index) {
+          <li class="item" (click)="toggleSubMenu($index)">
+            <a>
+              <i [class]="menu?.icon"></i>
+              <span class="item-text">{{menu?.title}}</span>
+              <span class="item-tooltip">{{menu?.tooltip}}</span>
+            </a>
+
+            @if (menu.subMenu.length > 0){
+            @if (menu.isActive){
+            <ul class="dropdown-menu">
+              <li>
+                <a >
+                  <i class="fa-solid fa-plus"></i>
+                  <span class="item-text">Add Products</span>
+                </a>
+              </li>
+              <li>
+                <a >
+                  <i class="fa-solid fa-list"></i>
+                  <span class="item-text">List Products</span>
+                </a>
+              </li>
+            </ul>
+
+            }
+            }
+          </li>
+          }
+        </ul>
+      </div>
+      <div class="section settings-section">
+        <div class="title-wrapper">
+          <span class="title">Settings</span>
+        </div>
+        <ul class="items">
+          <li class="item">
+            <a href="#">
+              <i class="fa-solid fa-bell"></i>
+              <span class="item-text">Notifications</span>
+              <span class="item-tooltip">Notifications</span>
+            </a>
+          </li>
+          <li class="item">
+            <a href="#">
+              <i class="fa-solid fa-gear"></i>
+              <span class="item-text">Settings</span>
+              <span class="item-tooltip">Settings</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section>
+    <ng-content></ng-content>
+  </section>
+</section>

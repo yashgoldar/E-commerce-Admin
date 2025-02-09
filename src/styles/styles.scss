@@ -1,0 +1,26 @@
+@use '@angular/material' as mat;
+@include mat.core();
+
+$ng-E-commerce-theme: mat.define-theme((color: (theme-type: light,
+        primary: mat.$azure-palette,
+        tertiary: mat.$blue-palette,
+      ),
+      density: (scale: 0,
+      )));
+
+:root {
+  @include mat.all-component-themes($ng-E-commerce-theme);
+}
+
+@import "tailwindcss";
+
+html,
+body {
+  height: 100%;
+}
+
+
+// Left-side-nav Start
+
+
+// Left-side-nav End
